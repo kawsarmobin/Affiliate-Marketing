@@ -21,7 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //...........Normal User
 Route::group(['prefix'=>'admin', 'middleware'=>['is_login']], function() {
-  Route::resource('product', 'Admin\Product\ProductsController');
+    Route::resource('product', 'Admin\Product\ProductsController');
+
+    //............password change
+    Route::get('setting/change-pass', 'Admin\Setting\SettingsController@setting')->name('setting');
+    Route::put('change-pass', 'Admin\Setting\SettingsController@changePass')->name('changePass');
 });
 
 //...........Admin
@@ -29,12 +33,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['is_login', 'is_admin']], functi
   Route::resource('sliderimage', 'Admin\SliderImage\SliderImagesController');
   Route::resource('article', 'Admin\Article\ArticlesController');
   Route::resource('category', 'Admin\Category\CategoriesController');
+
+  //.............user register area
+  Route::resource('user', 'Admin\User\UsersController');
+
+  Route::get('admin/{id}', 'Admin\User\UsersController@admin')->name('admin');
+  Route::get('regular/{id}', 'Admin\User\UsersController@regular')->name('regular');
 });
-
-
-// Route::get('/test', function () {
-//     return view('layouts.public');
-// });
 
 //...........Public Area
 Route::get('', 'PublicController@index')->name('public.products');

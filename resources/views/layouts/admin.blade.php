@@ -86,19 +86,25 @@
                   <ul class="list-group">
                     <li class="list-group-item"><a href="{{ route('home') }}">Dashboard</a></li>
 
+                    <li class="list-group-item"><a href="{{ route('setting') }}">Setting</a></li>
+
                     @if (Auth::user()->is_admin == 1)
-                      <li class="list-group-item"><a href="{{ route('category.create') }}">Create Category</a></li>
-                      <li class="list-group-item"><a href="{{ route('category.index') }}">All Category</a></li>
+                        <li class="list-group-item"><a href="{{ route('user.create') }}">Create User</a></li>
+                        <li class="list-group-item"><a href="{{ route('user.index') }}">All User</a></li>
 
-                      <li class="list-group-item"><a href="{{ route('sliderimage.create') }}">Upload Slider Image</a></li>
-                      <li class="list-group-item"><a href="{{ route('sliderimage.index') }}">All Slider Image</a></li>
+                        <li class="list-group-item"><a href="{{ route('category.create') }}">Create Category</a></li>
+                        <li class="list-group-item"><a href="{{ route('category.index') }}">All Category</a></li>
 
-                      <li class="list-group-item"><a href="{{ route('article.create') }}">Create Article</a></li>
-                      <li class="list-group-item"><a href="{{ route('article.index') }}">All Article</a></li>
+                        <li class="list-group-item"><a href="{{ route('sliderimage.create') }}">Upload Slider Image</a></li>
+                        <li class="list-group-item"><a href="{{ route('sliderimage.index') }}">All Slider Image</a></li>
+
+                        <li class="list-group-item"><a href="{{ route('article.create') }}">Create Article</a></li>
+                        <li class="list-group-item"><a href="{{ route('article.index') }}">All Article</a></li>
                     @endif
 
                     <li class="list-group-item"><a href="{{ route('product.create') }}">Create Product</a></li>
                     <li class="list-group-item"><a href="{{ route('product.index') }}">All Product</a></li>
+
                   </ul>
                 </div>
             </div>
