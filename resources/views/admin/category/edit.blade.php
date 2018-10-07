@@ -9,7 +9,6 @@
     <div class="panel-body">
 
       @include('includes.errors')
-      @include('includes.message')
 
       <form class="form-horizontal" action="{{ route('category.update', $category->id) }}" method="post">
         {{ csrf_field() }} {{ method_field('put') }}
@@ -18,7 +17,7 @@
           <label for="name" class="col-md-2 control-label">Name</label>
 
           <div class="col-md-8">
-            <input type="text" class="form-control" name="name" value="{{ $category->name }}">
+            <input type="text" class="form-control" name="name" value="{{ ucwords($category->name) }}">
           </div>
         </div>
 

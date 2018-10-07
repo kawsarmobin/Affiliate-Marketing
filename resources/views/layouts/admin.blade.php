@@ -10,13 +10,19 @@
 
     <title>{{ config('admin.name', 'Choose Product') }}</title>
 
-    {{-- <title>Choose Product</title> --}}
-
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+    // Summernote css
+    @yield('styles')
+
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap.css.map') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap-theme.css.map') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap-theme.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -53,7 +59,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -116,16 +122,24 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script><!-- include libraries(jQuery, bootstrap) -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <!-- include summernote css/js -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('bootstrap335/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootstrap335/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap335/js/npm.js') }}"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
+    <script type="text/javascript" src="{{asset('js/toastr.min.js')}}"></script>
+    <script type="text/javascript">
+        @if (Session::has('success'))
+            toastr.success("{{Session::get('success')}}")
+        @endif
+        @if (Session::has('info'))
+            toastr.info("{{Session::get('info')}}")
+        @endif
     </script>
+
+    // Summernote js
+    @yield('scripts')
+
 </body>
 </html>

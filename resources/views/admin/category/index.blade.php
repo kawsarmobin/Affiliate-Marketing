@@ -8,8 +8,6 @@
 
     <div class="panel-body">
 
-      @include('includes.message')
-
       <table class="table table-data">
         <thead>
           <th>Name</th>
@@ -19,7 +17,7 @@
           @if ($categories)
             @foreach ($categories as $category)
               <tr>
-                <td>{{ $category->name }}</td>
+                <td>{{ ucwords($category->name) }}</td>
                 <td>
                   <form class="" action="{{ route('category.destroy', $category->id) }}" method="post">
                     {{ csrf_field() }} {{ method_field('delete') }}

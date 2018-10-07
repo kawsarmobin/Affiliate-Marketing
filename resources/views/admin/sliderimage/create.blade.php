@@ -9,7 +9,6 @@
     <div class="panel-body">
 
       @include('includes.errors')
-      @include('includes.message')
 
       <form class="form-horizontal" action="{{ route('sliderimage.store') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

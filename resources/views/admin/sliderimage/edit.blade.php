@@ -9,7 +9,6 @@
     <div class="panel-body">
 
       @include('includes.errors')
-      @include('includes.message')
 
       <form class="form-horizontal" action="{{ route('sliderimage.update', $slider->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }} {{ method_field('put') }}

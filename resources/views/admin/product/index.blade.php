@@ -8,8 +8,6 @@
 
     <div class="panel-body">
 
-      @include('includes.message')
-
       <table class="table table-data">
         <thead>
           <th>Picture</th>
@@ -23,7 +21,7 @@
                 <td>
                   <img src="{{ $product->picture }}" alt="No Picture" width="200px" height="100px">
                 </td>
-                <td>{{ $product->name }}</td>
+                <td>{{ ucwords($product->name) }}</td>
                 <td>
                   <form class="" action="{{ route('product.destroy', $product->id) }}" method="post">
                     {{ csrf_field() }} {{ method_field('delete') }}

@@ -11,7 +11,7 @@
         </div>
       @endif
 
-      <h3 class="text-center">Welcome {{Auth::user()->name}}</h3>
+      <h3 class="text-center">Welcome {{ ucwords(Auth::user()->name) }}</h3>
 
     </div>
   </div>

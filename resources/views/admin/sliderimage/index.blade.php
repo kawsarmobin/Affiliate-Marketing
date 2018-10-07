@@ -8,8 +8,6 @@
 
     <div class="panel-body">
 
-      @include('includes.message')
-      
       <table class="table table-data">
         <thead>
           <th>Image</th>

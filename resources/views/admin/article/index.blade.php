@@ -8,8 +8,6 @@
 
     <div class="panel-body">
 
-      @include('includes.message')
-
       <table class="table table-data">
         <thead>
           <th>Title</th>
@@ -20,7 +18,7 @@
           @if ($articles)
             @foreach ($articles as $article)
               <tr>
-                <td>{{ $article->title }}</td>
+                <td>{{ ucwords($article->title) }}</td>
                 <td>{!! $article->des !!}</td>
                 <td>
                   <form class="" action="{{ route('article.destroy', $article->id) }}" method="post">

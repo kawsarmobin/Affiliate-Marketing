@@ -9,7 +9,6 @@
         <div class="panel-body">
 
             @include('includes.errors')
-            @include('includes.message')
 
             <form class="form-horizontal" action="{{ route('user.update', $user->id) }}" method="post">
                 {{ csrf_field() }} {{ method_field('put') }}

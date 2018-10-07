@@ -9,7 +9,6 @@
     <div class="panel-body">
 
       @include('includes.errors')
-      @include('includes.message')
 
       <form class="form-horizontal" action="{{ route('article.store') }}" method="post">
         {{ csrf_field() }}
@@ -43,4 +42,17 @@
       </form>
     </div>
   </div>
+@endsection
+
+@section('styles')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
 @endsection
