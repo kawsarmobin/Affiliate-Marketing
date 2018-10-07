@@ -9,7 +9,7 @@
       @foreach ($articles as $article)
         <!-- Marketing Icons Section -->
 
-        <h1 style="text-align:center; padding-top: 35px;">{{ $article->title }}</h1>
+        <h1 style="text-align:center; padding-top: 35px;">{{ ucwords($article->title) }}</h1>
 
         <div class="col-md-12 text-justify">
           <p>{!! $article->des !!}</p>
@@ -32,7 +32,7 @@
                 <td>
                   <a href="{{ route('public.product.show', $product->slug) }}"><img src="{{ $product->picture }}" alt="No Picture" width="100px" height="70px">
                 </td>
-                <td><a target="_blank" style="text-decoration: none; color: black;" href="{{ route('public.product.show', $product->slug) }}">{{ $product->name }}</a></td>
+                <td><a target="_blank" style="text-decoration: none; color: black;" href="{{ route('public.product.show', $product->slug) }}">{{ ucwords($product->name) }}</a></td>
                 <td><a target="_blank" href="{{ $product->price }}" class="btn btn-primary btn_plus_infos">Price</a></td>
               </tr>
             @endforeach
@@ -53,7 +53,7 @@
                   @foreach ($features as $feature)
                       <tr>
                           <td style="padding-right: 0px">{{ $i }}</td>
-                          <td><a style="text-decoration: none;" href="{{ route('public.product.show', $feature->slug) }}">{{ $feature->name }}</a></td>
+                          <td><a style="text-decoration: none;" href="{{ route('public.product.show', $feature->slug) }}">{{ ucwords($feature->name) }}</a></td>
                       </tr>
                       <?php $i++;?>
                   @endforeach
@@ -75,8 +75,9 @@
               <a href="{{ route('public.product.show', $product->slug) }}"><img class="card-img-top" src="{{ $product->picture }}" alt="No Picture"  width="400px" height="200px"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a style="text-decoration: none;" href="{{ route('public.product.show', $product->slug) }}">{{ $product->name }}</a>
+                  <a style="text-decoration: none;" href="{{ route('public.product.show', $product->slug) }}">{{ ucwords($product->name) }}</a>
                 </h4>
+                <hr>
                 <p class="card-text">{!! str_limit($product->about, '700') !!}</p>
               </div>
               <div class="card-footer">

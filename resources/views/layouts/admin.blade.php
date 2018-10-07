@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
-    // Summernote css
+    {{-- Summernote css --}}
     @yield('styles')
 
     <link rel="stylesheet" href="{{ asset('bootstrap335/css/bootstrap.css') }}">
@@ -138,7 +138,7 @@
         @endif
     </script>
 
-    // Summernote js
+    {{-- Summernote js --}}
     @yield('scripts')
 
 </body>

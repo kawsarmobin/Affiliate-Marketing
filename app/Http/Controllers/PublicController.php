@@ -16,7 +16,7 @@ class PublicController extends Controller
       return view('public.product.index')
               ->with('sliderImage', SliderImage::take(1)->first())
               ->with('sliderImages', SliderImage::skip(1)->take(2)->get())
-              ->with('articles', Article::all())
+              ->with('articles', Article::all()->take(1))
               ->with('products', Product::all())
               ->with('features', Product::all()->take(10));
     }
